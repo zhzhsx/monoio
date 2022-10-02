@@ -36,8 +36,8 @@ impl TcpStreamCompat {
     /// User must ensure that the data slices provided to `poll_write`
     /// before Poll::Ready are with the same data.
     pub unsafe fn new(stream: TcpStream) -> Self {
-        let r_buf = Buf::new(8 * 1024);
-        let w_buf = Buf::new(8 * 1024);
+        let r_buf = Buf::new(8 * 1024 * 4);
+        let w_buf = Buf::new(8 * 1024 * 4);
 
         Self {
             stream,
